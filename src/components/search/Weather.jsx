@@ -5,7 +5,7 @@ import '../stylesheets/Weather.css'
 export default function Weather() {
   const [data, setData] = useState({})
   const [location, setLocation] = useState('')
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=add604d1151621ae73b35b3d899be439
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_API_KEY}
 `
 
   const SearchLocation = (event) => {
@@ -27,27 +27,34 @@ export default function Weather() {
           onChange={event => setLocation(event.target.value)}
           onKeyPress={SearchLocation} />
       </div>
-      <div className='top'>
+      <div className="weather">
+      <div className='left'>
         <div className="location">
           <p>{data.name}</p>
         </div>
         <div className='temp'>
-          {data.main ? <p>{data.main.temp.toFixed()}</p> : null }
+          {data.main ? <p>{data.main.temp.toFixed()}°C</p> : null }
         </div>
         <div className='description'>
           {data.weather ? <p>{data.weather[0].main}</p> : null}
         </div>
       </div>
-      <div className='bot'>
+      {data.name != undefined &&
+        <div className='right'>
         <div className='sensation'>
-          { data.main ? <p>{data.main.feels_like.toFixed()}</p> : null }
+          <p>Feels like</p>
+          { data.main ? <p className="bold">{data.main.feels_like.toFixed()}°C</p> : null }
         </div>
         <div className='humidity'>
-          { data.main ? <p>{data.main.humidity}</p> : null }
+          <p>Humidity</p>
+          { data.main ? <p className="bold">{data.main.humidity}%</p> : null }
         </div>
         <div className='wind'>
-          { data.wind ? <p>{data.wind.speed}</p> : null }
+          <p>Wind</p>
+          { data.wind ? <p className="bold">{data.wind.speed}km/h</p> : null }
         </div>
+      </div>
+      }
       </div>
     </div>
   )

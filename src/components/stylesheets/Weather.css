@@ -1,4 +1,75 @@
 .container {
   width: 600px;
   height: 450px;
+  background-color: white;
+  border-radius: 20px;
+  color: white;
+  background-color: blue;
+  background: url('../assets/nadiia-ploshchenko-Vk9L-KCraDM-unsplash.jpg') no-repeat center center/cover;
+
+
+}
+
+p {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+
+}
+
+input {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, .2);
+  color: white;
+  font-weight: bold;
+}
+
+.weather {
+  display: flex;
+  flex-grow: 1 ;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.location {
+  font-size: 3rem;
+}
+
+.temp p {
+  font-size: 6rem;
+  padding: 10px;
+}
+
+.description {
+  font-size: 2rem;
+}
+
+.right{
+  padding: 10px;
+}
+.right p {
+  margin: 10px;
+}
+.sensation {
+  display: flex;
+}
+
+.humidity {
+  display: flex;
+}
+
+.wind {
+  display: flex;
+}
+.bold {
+  font-weight: bold;
 }

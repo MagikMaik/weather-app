@@ -1,5 +1,4 @@
 import './App.css';
-import axios from "axios"
 import Weather from './components/search/Weather'
 
 function App() {
